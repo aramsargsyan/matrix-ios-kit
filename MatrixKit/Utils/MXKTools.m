@@ -435,7 +435,7 @@ static NSMutableDictionary* backgroundByImageNameDict;
                     [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"settings"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
 
                         NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                        [[UIApplication sharedApplication] openURL:url];
+                        [[UIApplication mx_sharedApplication] mx_openURL:url];
 
                         // Note: it does not worth to check if the user changes the permission
                         // because iOS restarts the app in case of change of app privacy settings
@@ -530,7 +530,8 @@ manualChangeMessageForVideo:(NSString*)manualChangeMessageForVideo
             [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"settings"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
 
                 NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-                [[UIApplication sharedApplication] openURL:url];
+                
+                [[UIApplication mx_sharedApplication] mx_openURL:url];
 
                 // Note: it does not worth to check if the user changes the permission
                 // because iOS restarts the app in case of change of app privacy settings

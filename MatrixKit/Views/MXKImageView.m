@@ -228,9 +228,9 @@
             [super removeFromSuperview];
         }
         
-        [UIApplication sharedApplication].statusBarHidden = YES;
+        [UIApplication mx_sharedApplication].statusBarHidden = YES;
         
-        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        UIWindow *window = [[UIApplication mx_sharedApplication] keyWindow];
         
         self.frame = window.bounds;
         [window addSubview:self];
@@ -326,7 +326,7 @@
     
     if (_fullScreen)
     {
-        [UIApplication sharedApplication].statusBarHidden = NO;
+        [UIApplication mx_sharedApplication].statusBarHidden = NO;
     }
     
     if (pieChartView)
@@ -371,7 +371,7 @@
     
     if (leftButtonTitle || rightButtonTitle)
     {
-        UIViewController *rootViewController = [[UIApplication sharedApplication] keyWindow].rootViewController;
+        UIViewController *rootViewController = [[UIApplication mx_sharedApplication] keyWindow].rootViewController;
         
         tabBarController = rootViewController.tabBarController;
         if (!tabBarController && [rootViewController isKindOfClass:[UITabBarController class]])
@@ -773,7 +773,7 @@
     
     if (_fullScreen)
     {
-        [UIApplication sharedApplication].statusBarHidden = NO;
+        [UIApplication mx_sharedApplication].statusBarHidden = NO;
     }
 }
 

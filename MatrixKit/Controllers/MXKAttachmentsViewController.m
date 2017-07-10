@@ -177,7 +177,7 @@
     savedAVAudioSessionCategory = [[AVAudioSession sharedInstance] category];
     
     // Hide status bar
-    [UIApplication sharedApplication].statusBarHidden = YES;
+    [UIApplication mx_sharedApplication].statusBarHidden = YES;
     
     // Handle here the case of splitviewcontroller use on iOS 8 and later.
     if (self.splitViewController && [self.splitViewController respondsToSelector:@selector(displayMode)])
@@ -237,7 +237,7 @@
     }
     
     // Restore status bar
-    [UIApplication sharedApplication].statusBarHidden = NO;
+    [UIApplication mx_sharedApplication].statusBarHidden = NO;
     
     if (shouldRestoreBottomBar)
     {

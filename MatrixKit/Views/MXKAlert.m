@@ -16,6 +16,8 @@
 
 #import "MXKAlert.h"
 
+#import "UIApplication+MatrixSDK.h"
+
 #import <objc/runtime.h>
 
 @interface MXKAlert()
@@ -47,6 +49,10 @@
 {
     if (self = [super init])
     {
+        // Using only UIAlertController for App Extensions, as the other options are unavailable for them
+#ifdef MXK_APP_EXTENSIONS
+        _alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:(UIAlertControllerStyle)style];
+#else
         // Check iOS version
         if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8)
         {
@@ -66,6 +72,7 @@
             
             self.cancelButtonIndex = -1;
         }
+#endif
     }
     return self;
 }
@@ -226,7 +233,7 @@
     }
     else if ([_alert isKindOfClass:[UIActionSheet class]])
     {
-        [(UIActionSheet *)_alert showInView:[[UIApplication sharedApplication] keyWindow]];
+        [(UIActionSheet *)_alert showInView:[[UIApplication mx_sharedApplication] keyWindow]];
     }
     else if ([_alert isKindOfClass:[UIAlertView class]])
     {

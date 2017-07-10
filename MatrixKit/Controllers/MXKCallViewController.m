@@ -726,7 +726,7 @@ NSString *const kMXKCallViewControllerBackToAppNotification = @"kMXKCallViewCont
 
 - (void)updateLocalPreviewLayout
 {
-    UIInterfaceOrientation screenOrientation = [[UIApplication sharedApplication] statusBarOrientation];
+    UIInterfaceOrientation screenOrientation = [[UIApplication mx_sharedApplication] statusBarOrientation];
     
     CGFloat maxPreviewFrameSize, minPreviewFrameSize;
     
@@ -824,7 +824,7 @@ NSString *const kMXKCallViewControllerBackToAppNotification = @"kMXKCallViewCont
     // Disable the idle timer during a video call, or during a voice call which is performed with the built-in receiver.
     // Note: if the device is locked, VoIP calling get dropped if an incoming GSM call is received.
     BOOL disableIdleTimer = inCall && (mxCall.isVideoCall || isBuiltInReceiverUsed);
-    [UIApplication sharedApplication].idleTimerDisabled = disableIdleTimer;
+    [UIApplication mx_sharedApplication].idleTimerDisabled = disableIdleTimer;
 }
 
 #pragma mark - UIResponder Touch Events

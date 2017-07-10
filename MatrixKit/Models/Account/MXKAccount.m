@@ -768,8 +768,8 @@ static MXKAccountOnCertificateChange _onCertificateChangeBlock;
     
     if (mxSession && mxSession.state == MXSessionStateRunning)
     {
-        _bgTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-            [[UIApplication sharedApplication] endBackgroundTask:_bgTask];
+        _bgTask = [[UIApplication mx_sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+            [[UIApplication mx_sharedApplication] endBackgroundTask:_bgTask];
             _bgTask = UIBackgroundTaskInvalid;
             
             NSLog(@"[MXKAccount] pauseInBackgroundTask : %08lX expired", (unsigned long)_bgTask);
@@ -783,7 +783,7 @@ static MXKAccountOnCertificateChange _onCertificateChangeBlock;
         __weak typeof(self) weakSelf = self;
         [self setUserPresence:MXPresenceUnavailable andStatusMessage:nil completion:^{
             NSLog(@"[MXKAccount] pauseInBackgroundTask : %08lX ends", (unsigned long)weakSelf.bgTask);
-            [[UIApplication sharedApplication] endBackgroundTask:weakSelf.bgTask];
+            [[UIApplication mx_sharedApplication] endBackgroundTask:weakSelf.bgTask];
             weakSelf.bgTask = UIBackgroundTaskInvalid;
             NSLog(@"[MXKAccount] >>>>> background pause task finished");
         }];
@@ -836,7 +836,7 @@ static MXKAccountOnCertificateChange _onCertificateChangeBlock;
         if (_bgTask)
         {
             // Cancel background task
-            [[UIApplication sharedApplication] endBackgroundTask:_bgTask];
+            [[UIApplication mx_sharedApplication] endBackgroundTask:_bgTask];
             _bgTask = UIBackgroundTaskInvalid;
             NSLog(@"[MXKAccount] pauseInBackgroundTask : %08lX cancelled", (unsigned long)_bgTask);
         }
@@ -1302,7 +1302,7 @@ static MXKAccountOnCertificateChange _onCertificateChangeBlock;
     if (backgroundSyncBgTask != UIBackgroundTaskInvalid)
     {
         // End background task
-        [[UIApplication sharedApplication] endBackgroundTask:backgroundSyncBgTask];
+        [[UIApplication mx_sharedApplication] endBackgroundTask:backgroundSyncBgTask];
         backgroundSyncBgTask = UIBackgroundTaskInvalid;
         NSLog(@"[MXKAccount] onBackgroundSyncDone: %08lX stop", (unsigned long)backgroundSyncBgTask);
     }
@@ -1327,10 +1327,10 @@ static MXKAccountOnCertificateChange _onCertificateChangeBlock;
         
         if (backgroundSyncBgTask != UIBackgroundTaskInvalid)
         {
-             [[UIApplication sharedApplication] endBackgroundTask:backgroundSyncBgTask];
+             [[UIApplication mx_sharedApplication] endBackgroundTask:backgroundSyncBgTask];
         }
         
-        backgroundSyncBgTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        backgroundSyncBgTask = [[UIApplication mx_sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
             NSLog(@"[MXKAccount] the background Sync fails because of the bg task timeout");
             [self cancelBackgroundSync];
             

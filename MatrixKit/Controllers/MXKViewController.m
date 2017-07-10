@@ -638,7 +638,7 @@
         // Compute keyboard height
         CGSize screenSize = [[UIScreen mainScreen] bounds].size;
         // on IOS 8, the screen size is oriented
-        if ((NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1) && UIInterfaceOrientationIsLandscape([UIApplication sharedApplication].statusBarOrientation))
+        if ((NSFoundationVersionNumber <= NSFoundationVersionNumber_iOS_7_1) && UIInterfaceOrientationIsLandscape([UIApplication mx_sharedApplication].statusBarOrientation))
         {
             screenSize = CGSizeMake(screenSize.height, screenSize.width);
         }
