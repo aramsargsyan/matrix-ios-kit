@@ -34,20 +34,19 @@ typedef enum : NSUInteger {
     MXKAlertStyleAlert
 } MXKAlertStyle;
 
-@interface MXKAlert : NSObject <UIActionSheetDelegate> {
+@interface MXKAlert : NSObject {
 }
 
 typedef void (^blockMXKAlert_onClick)(MXKAlert *alert);
 typedef void (^blockMXKAlert_textFieldHandler)(UITextField *textField);
 
-@property(nonatomic) NSInteger cancelButtonIndex; // required to dismiss cusmtomAlert on iOS < 8 (default is -1).
 @property(nonatomic) NSString *mxkAccessibilityIdentifier; // Supported only on iOS >= 8.0.
 @property(nonatomic, weak) UIView *sourceView;
 
 - (id)initWithTitle:(NSString *)title message:(NSString *)message style:(MXKAlertStyle)style;
 
 // Adds a button with the title. returns the index (0 based) of where it was added.
-- (NSInteger)addActionWithTitle:(NSString *)title style:(MXKAlertActionStyle)style handler:(blockMXKAlert_onClick)handler;
+- (void)addActionWithTitle:(NSString *)title style:(MXKAlertActionStyle)style handler:(blockMXKAlert_onClick)handler;
 
 // Adds a text field to an alert (Note: You can add a text field only if the style property is set to MXKAlertStyleAlert).
 - (void)addTextFieldWithConfigurationHandler:(blockMXKAlert_textFieldHandler)configurationHandler;

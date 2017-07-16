@@ -181,7 +181,7 @@ NSString *const kPasteboardItemPrefix = @"pasteboard-";
                 
                 // Ask for userId to invite
                 strongSelf->optionsListView = [[MXKAlert alloc] initWithTitle:[NSBundle mxk_localizedStringForKey:@"user_id_title"] message:nil style:MXKAlertStyleAlert];
-                strongSelf->optionsListView.cancelButtonIndex = [strongSelf->optionsListView addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
+                [strongSelf->optionsListView addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
                 {
                     __strong __typeof(weakSelf)strongSelf = weakSelf;
                     strongSelf->optionsListView = nil;
@@ -216,7 +216,7 @@ NSString *const kPasteboardItemPrefix = @"pasteboard-";
         
         if (optionsListView)
         {
-            optionsListView.cancelButtonIndex = [optionsListView addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
+            [optionsListView addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
             {
                 __strong __typeof(weakSelf)strongSelf = weakSelf;
                 strongSelf->optionsListView = nil;
@@ -705,7 +705,7 @@ NSString* MXKFileSizes_description(MXKFileSizes sizes)
             [strongSelf dismissCompressionPrompt];
         }];
         
-        compressionPrompt.cancelButtonIndex = [compressionPrompt addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+        [compressionPrompt addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             [strongSelf dismissCompressionPrompt];
         }];
@@ -886,7 +886,7 @@ NSString* MXKFileSizes_description(MXKFileSizes sizes)
             [strongSelf sendSelectedAssets:contentEditingInputs withFileSizes:fileSizes andCompressionMode:MXKRoomInputToolbarCompressionModeNone];
         }];
 
-        compressionPrompt.cancelButtonIndex = [compressionPrompt addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+        [compressionPrompt addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             [strongSelf dismissCompressionPrompt];
         }];

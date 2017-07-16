@@ -304,7 +304,7 @@
                     
                 }];
                 
-                currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"no"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+                [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"no"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
                     
                     __strong __typeof(weakSelf)strongSelf = weakSelf;
                     strongSelf->currentAlert = nil;
@@ -855,7 +855,7 @@
             [currentAlert dismiss:NO];
             currentAlert = [[MXKAlert alloc] initWithTitle:[NSBundle mxk_localizedStringForKey:@"room_member_power_level_prompt"]  message:nil style:MXKAlertStyleAlert];
 
-            currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"no"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+            [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"no"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
 
                 __strong __typeof(weakSelf)strongSelf = weakSelf;
                 strongSelf->currentAlert = nil;
@@ -906,7 +906,7 @@
     
     if (![self.mainSession.myUser.userId isEqualToString:_mxRoomMember.userId])
     {
-        currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"reset_to_default"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
+        [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"reset_to_default"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
         {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             strongSelf->currentAlert = nil;

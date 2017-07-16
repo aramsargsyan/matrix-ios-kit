@@ -249,7 +249,7 @@ NSString* const kMXKAccountDetailsLinkedEmailCellId = @"kMXKAccountDetailsLinked
         dispatch_async(dispatch_get_main_queue(), ^{
             MXKAlert *alert = [[MXKAlert alloc] initWithTitle:nil message:[NSBundle mxk_localizedStringForKey:@"message_unsaved_changes"] style:MXKAlertStyleAlert];
             [alertsArray addObject:alert];
-            alert.cancelButtonIndex = [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"discard"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+            [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"discard"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
                 [alertsArray removeObject:alert];
                 // Discard changes
                 self.userDisplayName.text = currentDisplayName;
@@ -414,8 +414,10 @@ NSString* const kMXKAccountDetailsLinkedEmailCellId = @"kMXKAccountDetailsLinked
              NSString *msg = [error.userInfo valueForKey:NSLocalizedDescriptionKey];
              
              MXKAlert *alert = [[MXKAlert alloc] initWithTitle:title message:msg style:MXKAlertStyleAlert];
+            
+             //UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:msg preferredStyle:UIAlertControllerStyleAlert];
              [strongSelf->alertsArray addObject:alert];
-             alert.cancelButtonIndex = [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"abort"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
+             [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"abort"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
                                         {
                                             [strongSelf->alertsArray removeObject:alert];
                                             // Discard changes
@@ -504,7 +506,7 @@ NSString* const kMXKAccountDetailsLinkedEmailCellId = @"kMXKAccountDetailsLinked
     
     MXKAlert *alert = [[MXKAlert alloc] initWithTitle:title message:msg style:MXKAlertStyleAlert];
     [alertsArray addObject:alert];
-    alert.cancelButtonIndex = [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"abort"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
+    [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"abort"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
                                {
                                    [alertsArray removeObject:alert];
                                    // Remove change
@@ -662,7 +664,7 @@ NSString* const kMXKAccountDetailsLinkedEmailCellId = @"kMXKAccountDetailsLinked
                                                 style:MXKAlertStyleAlert];
     [alertsArray addObject:alert];
 
-    alert.cancelButtonIndex = [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"abort"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert){
+    [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"abort"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert){
 
         [alertsArray removeObject:alert];
 
@@ -760,7 +762,7 @@ NSString* const kMXKAccountDetailsLinkedEmailCellId = @"kMXKAccountDetailsLinked
             MXKAlert *alert = [[MXKAlert alloc] initWithTitle:[NSBundle mxk_localizedStringForKey:@"account_error_email_wrong_title"] message:[NSBundle mxk_localizedStringForKey:@"account_error_email_wrong_description"] style:MXKAlertStyleAlert];
             [alertsArray addObject:alert];
 
-            alert.cancelButtonIndex = [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+            [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
                 [alertsArray removeObject:alert];
             }];
             [alert showInViewController:self];

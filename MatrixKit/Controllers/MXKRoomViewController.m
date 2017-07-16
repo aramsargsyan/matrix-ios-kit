@@ -789,7 +789,7 @@ NSString *const kCmdChangeRoomTopic = @"/topic";
         currentAlert = [[MXKAlert alloc] initWithTitle:errorTitle
                                                message:errorMessage
                                                  style:MXKAlertStyleAlert];
-        currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
+        [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
                                           {
                                               typeof(self) self = weakSelf;
                                               self->currentAlert = nil;
@@ -837,7 +837,7 @@ NSString *const kCmdChangeRoomTopic = @"/topic";
             currentAlert = [[MXKAlert alloc] initWithTitle:[NSBundle mxk_localizedStringForKey:@"room_error_join_failed_title"]
                                                    message:msg
                                                      style:MXKAlertStyleAlert];
-            currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
+            [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
                                               {
                                                   typeof(self) self = weakSelf;
                                                   self->currentAlert = nil;
@@ -902,7 +902,7 @@ NSString *const kCmdChangeRoomTopic = @"/topic";
             currentAlert = [[MXKAlert alloc] initWithTitle:[NSBundle mxk_localizedStringForKey:@"room_error_join_failed_title"]
                                                    message:msg
                                                      style:MXKAlertStyleAlert];
-            currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
+            [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
                                               {
                                                   typeof(self) self = weakSelf;
                                                   self->currentAlert = nil;
@@ -2130,7 +2130,7 @@ NSString *const kCmdChangeRoomTopic = @"/topic";
         currentAlert = [[MXKAlert alloc] initWithTitle:[NSBundle mxk_localizedStringForKey:@"resend_message"]
                                                message:textMessage
                                                  style:MXKAlertStyleAlert];
-        currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
+        [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
         {
             typeof(self) self = weakSelf;
             self->currentAlert = nil;
@@ -2557,7 +2557,7 @@ NSString *const kCmdChangeRoomTopic = @"/topic";
             
             __weak __typeof(self) weakSelf = self;
             currentAlert = [[MXKAlert alloc] initWithTitle:nil message:[NSBundle mxk_localizedStringForKey:@"attachment_cancel_download"] style:MXKAlertStyleAlert];
-            currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"no"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+            [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"no"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
                 __strong __typeof(weakSelf)strongSelf = weakSelf;
                 strongSelf->currentAlert = nil;
             }];
@@ -2595,7 +2595,7 @@ NSString *const kCmdChangeRoomTopic = @"/topic";
                 
                 __weak __typeof(self) weakSelf = self;
                 currentAlert = [[MXKAlert alloc] initWithTitle:nil message:[NSBundle mxk_localizedStringForKey:@"attachment_cancel_upload"] style:MXKAlertStyleAlert];
-                currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"no"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+                [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"no"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
                     __strong __typeof(weakSelf)strongSelf = weakSelf;
                     strongSelf->currentAlert = nil;
                 }];
@@ -2891,7 +2891,7 @@ NSString *const kCmdChangeRoomTopic = @"/topic";
                 }];
             }
             
-            currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+            [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
                 __strong __typeof(weakSelf)strongSelf = weakSelf;
                 strongSelf->currentAlert = nil;
                 
@@ -2900,15 +2900,18 @@ NSString *const kCmdChangeRoomTopic = @"/topic";
             }];
             
             // Do not display empty action sheet
-            if (currentAlert.cancelButtonIndex)
-            {
+            
+            /*@giomfo, I did not understand this code.*/
+            
+            //if (currentAlert.cancelButtonIndex)
+            //{
                 currentAlert.sourceView = roomBubbleTableViewCell;
                 [currentAlert showInViewController:self];
-            }
-            else
-            {
+            //}
+            //else
+            //{
                 currentAlert = nil;
-            }
+            //}
         }
     }
     else if ([actionIdentifier isEqualToString:kMXKRoomBubbleCellLongPressOnAvatarView])

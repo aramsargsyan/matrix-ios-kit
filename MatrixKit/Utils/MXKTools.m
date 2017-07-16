@@ -443,7 +443,7 @@ static NSMutableDictionary* backgroundByImageNameDict;
                     }];
                 }
 
-                alert.cancelButtonIndex = [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+                [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
                     
                     handler(NO);
                 }];
@@ -539,7 +539,7 @@ manualChangeMessageForVideo:(NSString*)manualChangeMessageForVideo
             }];
         }
 
-        alert.cancelButtonIndex = [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+        [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
 
             handler(NO);
         }];

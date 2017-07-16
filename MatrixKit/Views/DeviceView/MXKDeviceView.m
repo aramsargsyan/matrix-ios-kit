@@ -254,7 +254,7 @@ static NSAttributedString *verticalWhitespace = nil;
         }
     }];
     
-    currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+    [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
         
         if (weakSelf)
         {
@@ -356,7 +356,7 @@ static NSAttributedString *verticalWhitespace = nil;
                 textField.keyboardType = UIKeyboardTypeDefault;
             }];
             
-            currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+            [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
                 
                 if (weakSelf)
                 {

@@ -624,13 +624,13 @@ NSString *const kMXKCallViewControllerBackToAppNotification = @"kMXKCallViewCont
 
         __weak typeof(self) weakSelf = self;
         errorAlert = [[MXKAlert alloc] initWithTitle:title message:msg style:MXKAlertStyleAlert];
-        errorAlert.cancelButtonIndex = [errorAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"]
-                                                                style:MXKAlertActionStyleDefault
-                                                              handler:^(MXKAlert *alert)
-                                        {
-                                            errorAlert = nil;
-                                            [weakSelf dismiss];
-                                        }];
+        [errorAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"]
+                                 style:MXKAlertActionStyleDefault
+                               handler:^(MXKAlert *alert)
+         {
+             errorAlert = nil;
+             [weakSelf dismiss];
+         }];
         [errorAlert showInViewController:self];
         
         // And interrupt the call

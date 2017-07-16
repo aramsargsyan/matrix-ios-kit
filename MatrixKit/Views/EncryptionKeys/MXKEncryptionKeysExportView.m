@@ -65,7 +65,7 @@
          [textField resignFirstResponder];
      }];
 
-    self.cancelButtonIndex = [self addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
+    [self addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
                               {
                                   if (weakSelf)
                                   {
@@ -93,7 +93,7 @@
 
                  MXKAlert *otherAlert = [[MXKAlert alloc] initWithTitle:[NSBundle mxk_localizedStringForKey:@"error"] message:error style:MXKAlertStyleAlert];
 
-                 otherAlert.cancelButtonIndex = [otherAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+                 [otherAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
 
                      if (weakSelf)
                      {
@@ -128,7 +128,7 @@
                          // TODO: i18n the error
                          MXKAlert *otherAlert = [[MXKAlert alloc] initWithTitle:[NSBundle mxk_localizedStringForKey:@"error"] message:error.localizedDescription style:MXKAlertStyleAlert];
                          
-                         otherAlert.cancelButtonIndex = [otherAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+                         [otherAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"ok"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
                              
                              onComplete(NO);
                          }];

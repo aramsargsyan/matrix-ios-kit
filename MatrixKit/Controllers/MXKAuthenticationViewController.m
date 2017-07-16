@@ -1255,7 +1255,7 @@ NSString *const MXKAuthErrorDomain = @"MXKAuthErrorDomain";
                 NSString *msg = [NSString stringWithFormat:@"%@\n\n%@\n\n%@\n\n%@\n\n%@\n\n%@", [NSBundle mxk_localizedStringForKey:@"ssl_cert_not_trust"], [NSBundle mxk_localizedStringForKey:@"ssl_cert_new_account_expl"], homeserverURLStr, fingerprint, certFingerprint, [NSBundle mxk_localizedStringForKey:@"ssl_only_accept"]];
                 
                 alert = [[MXKAlert alloc] initWithTitle:title message:msg style:MXKAlertStyleAlert];
-                alert.cancelButtonIndex = [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert){
+                [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert){
                     
                     isTrusted = NO;
                     dispatch_semaphore_signal(semaphore);
@@ -1516,7 +1516,7 @@ NSString *const MXKAuthErrorDomain = @"MXKAuthErrorDomain";
     NSString *msg = [error.userInfo valueForKey:NSLocalizedDescriptionKey];
     
     alert = [[MXKAlert alloc] initWithTitle:title message:msg style:MXKAlertStyleAlert];
-    alert.cancelButtonIndex = [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"dismiss"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {}];
+    [alert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"dismiss"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {}];
     [alert showInViewController:self];
     
     // Handle specific error code here

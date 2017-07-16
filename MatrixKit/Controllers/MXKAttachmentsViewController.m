@@ -1234,7 +1234,7 @@
             }];
         }
         
-        currentAlert.cancelButtonIndex = [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
+        [currentAlert addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert) {
             
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             strongSelf->currentAlert = nil;

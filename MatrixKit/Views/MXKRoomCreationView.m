@@ -332,7 +332,7 @@
             }];
         }
         
-        mxSessionPicker.cancelButtonIndex = [mxSessionPicker addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
+        [mxSessionPicker addActionWithTitle:[NSBundle mxk_localizedStringForKey:@"cancel"] style:MXKAlertActionStyleDefault handler:^(MXKAlert *alert)
         {
             __strong __typeof(weakSelf)strongSelf = weakSelf;
             strongSelf->mxSessionPicker = nil;
